@@ -8,35 +8,12 @@
 
 		<!--인기게시글 갤러리(GRID배치)-->
 		<div class="popular-gallery">
-
-			<div class="p-img-box">
-				<a href="/user/profile"> <img src="/images/home.jpg" />
-				</a>
-			</div>
-			<div class="p-img-box">
-				<a href="/user/profile"> <img src="/images/home.jpg" />
-				</a>
-			</div>
-			<div class="p-img-box">
-				<a href="/user/profile"> <img src="/images/home.jpg" />
-				</a>
-			</div>
-			<div class="p-img-box">
-				<a href="/user/profile"> <img src="/images/home.jpg" />
-				</a>
-			</div>
-			<div class="p-img-box">
-				<a href="/user/profile"> <img src="/images/home.jpg" />
-				</a>
-			</div>
-			<div class="p-img-box">
-				<a href="/user/profile"> <img src="/images/home.jpg" />
-				</a>
-			</div>
-			<div class="p-img-box">
-				<a href="/user/profile"> <img src="/images/home.jpg" />
-				</a>
-			</div>
+			<c:forEach items="${images}" var="image">
+				<div class="p-img-box">
+					<a href="/user/${image.user.id}"> <img src="/upload/${image.postImageUrl}" />
+					</a>
+				</div>
+			</c:forEach>
 		</div>
 
 	</div>

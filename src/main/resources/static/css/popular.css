@@ -18,11 +18,21 @@
 .popular .exploreContainer .popular-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
+  grid-gap: 10px;
+}
+
+.popular .exploreContainer .popular-gallery .p-img-box {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* 정사각형을 만들기 위해 사용 */
+  overflow: hidden;
 }
 
 .popular .exploreContainer .popular-gallery .p-img-box img {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover; /* 이미지를 비율을 유지하면서 잘라냄 */
 }

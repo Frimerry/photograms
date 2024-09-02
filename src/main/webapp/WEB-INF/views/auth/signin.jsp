@@ -24,7 +24,7 @@
                         <h1><img src="/images/logo.jpg" alt=""></h1>
                         
                         <!--로그인 인풋-->
-                        <form class="login__input" >
+                        <form class="login__input" action="/auth/signin" method="post">
                             <input type="text" name="username" placeholder="유저네임" required="required" />
                             <input type="password" name="password" placeholder="비밀번호" required="required" />
                             <button>로그인</button>
@@ -40,11 +40,8 @@
                         <!-- 또는end -->
                         
                         <!-- Oauth 소셜로그인 -->
-                        <div class="login__facebook">
-                            <button>
-                                <i class="fab fa-facebook-square"></i>
-                                <span>Facebook으로 로그인</span>
-                            </button>
+                        <div class="login__google">
+                            <img src="/images/google_light_square_1x.png" onclick="javascript:location.href='/oauth2/authorization/google'">
                         </div>
                         <!-- Oauth 소셜로그인end -->
                     </div>

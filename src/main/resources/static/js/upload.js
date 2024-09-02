@@ -13,3 +13,25 @@ function imageChoose(obj) {
 	}
 	reader.readAsDataURL(f); // 이 코드 실행시 reader.onload 실행됨.
 }
+
+// (2) 사진설명 입력 바이트 제한 체크
+function checkInputLength(input) {
+    const maxBytes = 255;
+    let byteCount = 0;
+    let charCount = 0;
+
+    for (let i = 0; i < input.value.length; i++) {
+        const charCode = input.value.charCodeAt(i);
+        byteCount += charCode > 0x7F ? 3 : 1;	// 0x7F(127)보다 크면 3바이트 글자
+        
+        if (byteCount <= maxBytes) {
+            charCount++;
+        } else {
+            break;
+        }
+    }
+
+    if (byteCount > maxBytes) {
+        input.value = input.value.substring(0, charCount);
+    }
+}

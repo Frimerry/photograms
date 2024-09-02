@@ -1,0 +1,54 @@
+server:
+  port: 5000
+  servlet:
+    context-path: /
+    encoding:
+      charset: utf-8
+      enabled: true
+  ssl:
+    enabled: true
+    key-store: keystore.p12
+    key-store-password: 662607
+    key-store-type: PKCS12
+    key-alias: spring
+    
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+      
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://${rds.host}:3306/photogram?serverTimezone=Asia/Seoul
+    username: ${rds.username}
+    password: ${rds.password}
+    
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: none #create #update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+      
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+
+  security:
+    user:
+      name: test
+      password: 1234
+      
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 1076115618856-ijd5fls8t32o7n646n8h29ecbvpupqkc.apps.googleusercontent.com
+            client-secret: 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
+            scope: profile, email
+  
+file:
+  path: /var/app/current/src/upload/
